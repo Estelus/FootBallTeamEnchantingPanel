@@ -1,1 +1,1 @@
-Automated test for FootBallTeam Enchanting panel in Java(JUnit) with Gradle
+Automated test for FootBallTeam enchanting panel in Java(JUnit) with Gradle
