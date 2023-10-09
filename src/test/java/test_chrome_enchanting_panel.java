@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -100,6 +101,9 @@ public class test_chrome_enchanting_panel {
         String actualTitle = driver.getTitle();
         assertEquals("Menad\u017Cer pi\u0142karski online - Pi\u0142karska gra online - graj w FootballTeam", actualTitle, "page Title does not match the expected title" );
 //  2. act - click and transfer the user to the dashboard panel
+        driver.quit();
+//  Assertion fail because writing test case is not finished
+        Assertions.fail();
 
 
     }
