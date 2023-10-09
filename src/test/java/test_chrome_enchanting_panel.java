@@ -103,6 +103,7 @@ public class test_chrome_enchanting_panel {
 //  2. act - click and transfer the user to the dashboard panel
         driver.quit();
 //  Assertion fail because writing test case is not finished
+
         Assertions.fail();
 
 
