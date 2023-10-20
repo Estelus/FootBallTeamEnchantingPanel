@@ -1,7 +1,6 @@
 import framework.DriverProvider;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 import org.openqa.selenium.By;
 
