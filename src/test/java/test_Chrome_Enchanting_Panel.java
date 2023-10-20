@@ -1,34 +1,26 @@
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
+import framework.DriverProvider;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import java.time.Duration;
 import org.openqa.selenium.By;
-
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class test_Chrome_Enchanting_Panel {
+
     WebDriver driver;
 
+    @BeforeEach
+    public void SetUp(){
+    driver = DriverProvider.getDriver();
 
-    @BeforeAll
-    public static void SetUp(){
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\macie\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
-
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-orgins=*");
-        options.addArguments("--allowed-ips=*");
-        options.addArguments("==whitelisted-ips==*");
     }
+
+
 
     @Test
     public void TestPageTitle() {
-
-        WebDriver driver = new ChromeDriver();
         driver.get("https://footballteamgame.com/pl/");
         String title = driver.getTitle();
         assertEquals("Menad\u017Cer pi\u0142karski online - Pi\u0142karska gra online - graj w FootballTeam", title);
@@ -41,7 +33,7 @@ public class test_Chrome_Enchanting_Panel {
         driver.get("https://footballteamgame.com/pl/");
         //act - Get to the main login page. Finding drop down to log in account. Clicking on it. Provide credential to log into the web service
         driver.findElement(By.cssSelector("span.like-link.hidden")).click();
-        driver.findElement(By.cssSelector("div.header")).click();
+        driver.findElement(By.cssSelector("div.header > button:nth-child(1)")).click();
         driver.findElement(By.cssSelector("[type=email]")).sendKeys("maciej.m1993@gmail.com");
         driver.findElement(By.cssSelector("input[type='password']")).sendKeys("m5rMASt8pKkChmj");
         driver.findElement(By.cssSelector("button.isSkewed div[data-v-d2acbfea]")).click();
@@ -52,13 +44,11 @@ public class test_Chrome_Enchanting_Panel {
 
     @Test
     public void enteringEnchantingPanel(){
-
-
+        //Act - Get to the main login page. Finding drop down to log in account. Clicking on it. Provide credential to log into the web service
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://footballteamgame.com/pl/");
-        //Act - Get to the main login page. Finding drop down to log in account. Clicking on it. Provide credential to log into the web service
         driver.findElement(By.cssSelector("span.like-link.hidden")).click();
-        driver.findElement(By.cssSelector("div.header")).click();
+        driver.findElement(By.cssSelector("div.header > button:nth-child(1)")).click();
         driver.findElement(By.cssSelector("[type=email]")).sendKeys("maciej.m1993@gmail.com");
         driver.findElement(By.cssSelector("input[type='password']")).sendKeys("m5rMASt8pKkChmj");
         driver.findElement(By.cssSelector("button.isSkewed div[data-v-d2acbfea]")).click();
@@ -87,10 +77,9 @@ public class test_Chrome_Enchanting_Panel {
     @Test
     public void refreshingEnchantingPanel(){
 //  1. Act - Get to the main login page. Finding drop down to log in account. Clicking on it. Provide credential to log into the web service
-
         driver.get("https://footballteamgame.com/pl/");
         driver.findElement(By.cssSelector("span.like-link.hidden")).click();
-        driver.findElement(By.cssSelector("div.header")).click();
+        driver.findElement(By.cssSelector("div.header > button:nth-child(1)")).click();
         driver.findElement(By.cssSelector("[type=email]")).sendKeys("maciej.m1993@gmail.com");
         driver.findElement(By.cssSelector("input[type='password']")).sendKeys("m5rMASt8pKkChmj");
         driver.findElement(By.cssSelector("button.isSkewed div[data-v-d2acbfea]")).click();
@@ -106,7 +95,7 @@ public class test_Chrome_Enchanting_Panel {
     }
     @AfterEach
     public void tearDown(){
-        driver.quit();
+        DriverProvider.quitDriver();
     }
 
 }

@@ -1,29 +1,28 @@
+import framework.DriverProvider;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.time.Duration;
-
+import org.openqa.selenium.firefox.FirefoxDriver;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class test_firefox_enchanting_panel {
 
-    @BeforeAll
-    public static void SetUp(){
+
+public class test_firefox_enchanting_panel {
+    WebDriver driver;
+
+    @BeforeEach
+    public void SetUp(){
+        driver = DriverProvider.getDriver();
+
+
 
         System.out.println("Opening Firefox browser.");
         System.setProperty("webdriver.gecko,driver", "C:\\Users\\macie\\Downloads\\geckodriver.exe");
 
-        FirefoxOptions options = new FirefoxOptions();
-        options.addArguments("--remote-allow-orgins=*");
-        options.addArguments("--allowed-ips=*");
-        options.addArguments("==whitelisted-ips==*");
 
     }
     @Test
