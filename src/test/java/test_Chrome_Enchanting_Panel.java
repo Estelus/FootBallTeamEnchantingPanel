@@ -31,7 +31,7 @@ public class test_Chrome_Enchanting_Panel {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://footballteamgame.com/pl/");
         //act - Get to the main login page. Finding drop down to log in account. Clicking on it. Provide credential to log into the web service
-        driver.findElement(By.cssSelector("span.like-link.hidden")).click();
+        driver.findElement(By.cssSelector("span.like-link.hidden.lg\\:block")).click();
         driver.findElement(By.cssSelector("div.header > button:nth-child(1)")).click();
         driver.findElement(By.cssSelector("[type=email]")).sendKeys("maciej.m1993@gmail.com");
         driver.findElement(By.cssSelector("input[type='password']")).sendKeys("m5rMASt8pKkChmj");
@@ -46,7 +46,7 @@ public class test_Chrome_Enchanting_Panel {
         //Act - Get to the main login page. Finding drop down to log in account. Clicking on it. Provide credential to log into the web service
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://footballteamgame.com/pl/");
-        driver.findElement(By.cssSelector("span.like-link.hidden")).click();
+        driver.findElement(By.cssSelector("span.like-link.hidden.lg\\:block")).click();
         driver.findElement(By.cssSelector("div.header > button:nth-child(1)")).click();
         driver.findElement(By.cssSelector("[type=email]")).sendKeys("maciej.m1993@gmail.com");
         driver.findElement(By.cssSelector("input[type='password']")).sendKeys("m5rMASt8pKkChmj");
@@ -73,11 +73,11 @@ public class test_Chrome_Enchanting_Panel {
 
     }
     @Test
-    public void refreshingEnchantingPanel() throws InterruptedException {
+    public void refreshingEnchantingPanel()  {
 //   Act - Get to the main login page. Finding drop down to log in account. Clicking on it. Provide credential to log into the web service
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://footballteamgame.com/pl/");
-        driver.findElement(By.cssSelector("span.like-link.hidden")).click();
+        driver.findElement(By.cssSelector("span.like-link.hidden.lg\\:block")).click();
         driver.findElement(By.cssSelector("div.header > button:nth-child(1)")).click();
         driver.findElement(By.cssSelector("[type=email]")).sendKeys("maciej.m1993@gmail.com");
         driver.findElement(By.cssSelector("input[type='password']")).sendKeys("m5rMASt8pKkChmj");
